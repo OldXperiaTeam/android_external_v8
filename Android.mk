@@ -17,12 +17,6 @@
 
 BASE_PATH := $(call my-dir)
 
-ifeq ($(TARGET_ARCH),arm)
-    ifneq ($(strip $(ARCH_ARM_HAVE_ARMV7A)),true)
-        $(warning WARNING: Building on ARM with non-ARMv7 variant. On ARM, V8 is well tested only on ARMv7.)
-    endif
-endif
-
 # Build libv8 and d8
 ifneq ($(filter $(TARGET_ARCH),x86 arm mips),)
     ENABLE_V8_SNAPSHOT = true
